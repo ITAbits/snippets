@@ -13,10 +13,8 @@ btnResize.addEventListener("click", (e) => {
     reader.onload = () => {
         imgBefore.src = reader.result;
         let image = new Image();
-        let resizer = ImageResizer();
-        resizer.load(reader.result, () => {
-            resizer.clamp(500, 500);
-            imgAfter.src = resizer.toBase64();
+        clampImage(reader.result, 1000, 1000, (base64) => {
+            imgAfter.src = base64;
         });
     };
     reader.readAsDataURL(fileImage.files[0]);

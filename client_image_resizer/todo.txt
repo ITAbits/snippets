@@ -1,0 +1,3 @@
+* deal with EXIF orientation
+* generate thumbnails (by cropping to a dimension insteading of clamping)
+* generate a jpeg compressed image with a specified quality

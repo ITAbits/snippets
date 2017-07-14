@@ -1,4 +1,6 @@
 function clampImage(base64, maxWidth, maxHeight, callback) {
+    if (maxHeight <= 0 || maxWidth <= 0)
+        return new Error("maxWidth and maxHeight must be positive");
     if (!callback) return new Error("Missing callback");
 
     function scaleImage(image, factor) {

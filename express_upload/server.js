@@ -9,7 +9,7 @@ app.use(BodyParser.urlencoded({ extended: false }));
 
 app.post("/upload", upload.single("file"), (req, res) => {
     console.log(req.body);
-    console.log(req.file);
+    console.log(req.file); // req.file : { originalname, mimetype, buffer, size }
 });
 
 app.use((req, res, next) => {

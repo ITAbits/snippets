@@ -7,7 +7,15 @@ btnSend.addEventListener("click", (e) => {
     // file.type - mime type
     // file.size - size in bytes
     let file = fileInput.files[0];
-    upload("http://localhost:8000/upload", { abacaxi: "banana", file: file }, (data) => {
-        console.log(data);
+    upload("http://localhost:8000/upload", { abacaxi: "banana", file: file }, {
+        success: (data) => {
+            console.log(data);
+        },
+        error: (err) => {
+            console.log(err);
+        },
+        progress: (p) => {
+            console.log(p);
+        }
     });
 });

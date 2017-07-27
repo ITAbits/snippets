@@ -1,5 +1,14 @@
 // callbacks: { success, error, progress }
 function upload(url, params, callbacks) {
+    function tryJSONParse(string) {
+        try {
+            return JSON.parse(string);
+        } catch (err) {
+            console.log(err);
+        }
+        return string;
+    }
+
     let formData = new FormData();
     for (let field in params) {
         formData.append(field, params[field]);
@@ -9,11 +18,11 @@ function upload(url, params, callbacks) {
     http.onload = () => {
         if (http.status === 200) {
             if (callbacks.success) {
-                callbacks.success(http.responseText);
+                callbacks.success(tryJSONParse(http.responseText));
             }
         } else {
             if (callbacks.error) {
-                callbacks.error(http.responseText);
+                callbacks.error(tryJSONParse(http.responseText));
             }
         }
     }
@@ -26,7 +35,7 @@ function upload(url, params, callbacks) {
     }
     http.onerror = () => {
         if (callbacks.error) {
-            callbacks.error(http.responseText);
+            callbacks.error(tryJSONParse(http.responseText));
         }
     }
     http.send(formData);

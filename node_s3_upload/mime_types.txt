@@ -1,0 +1,17 @@
+const whitelist = {
+    "pdf": "application/pdf",
+    "doc": "application/msword",
+    "ppt": "application/vnd.ms-powerpoint",
+    "xls": "application/vnd.ms-excel",
+    "docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "pptx": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    "xlsx": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "odt": "application/vnd.oasis.opendocument.text",
+    "odp": "application/vnd.oasis.opendocument.presentation",
+    "ods": "application/vnd.oasis.opendocument.spreadsheet",
+    "gif": "image/gif",
+    "jpg": "image/jpeg",
+    "jpeg": "image/jpeg",
+    "png": "image/png",
+    "mp3": "audio/mpeg"
+};

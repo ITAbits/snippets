@@ -14,6 +14,8 @@ function createS3(config) {
         region: config.region
     });
 
+    // returns: Promise<{ ETag, Location, Key, Bucket }>
+    // Location is the publicly available URL
     async function upload(buffer, contentType, path) {
         return new Promise((resolve, reject) => {
             s3.upload({

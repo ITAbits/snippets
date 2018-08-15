@@ -1,0 +1,13 @@
+[Unit]
+Description=node-script
+
+[Service]
+ExecStart=/usr/local/bin/node /full-path/script.js
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node-script
+
+[Install]
+WantedBy=multi-user.target
